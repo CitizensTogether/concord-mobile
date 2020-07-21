@@ -1,16 +1,13 @@
-# concord
-
-A community platform for on-demand volunteering
+# Project Concord
+*A community platform for on-demand volunteering.*
 
 ## Getting Started
+1. Clone this repository
+2. Go to the `lib/` directory.
 
-This project is a starting point for a Flutter application.
+## Contributors
+For those not on the Citizens Together team, please fork the `concord-mobile`
+repository and make a pull request to the `dev` branch outlining your changes.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## License
+This project uses the MIT License.
