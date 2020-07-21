@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class ConcordThemeManager with ChangeNotifier {
   ConcordThemeData _currentTheme = lightTheme;
+
   ConcordThemeData get theme => _currentTheme;
 
   //light theme data
