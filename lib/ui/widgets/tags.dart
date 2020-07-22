@@ -70,7 +70,7 @@ class _TagPickerState extends State<TagPicker> {
         }
       ),
       itemCount: widget.tags != null ? widget.tags.length : 0,
-      itemBuilder: (index){
+      itemBuilder: (index) {
         final String item = widget.tags[index];
         return ItemTags(
           key: Key(index.toString()),
