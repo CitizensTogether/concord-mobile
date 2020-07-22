@@ -4,6 +4,8 @@ import 'package:concord/utils/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'ui/screens/request_details_screen.dart';
+
 /// Initialize the app.
 void main() {
   setupLocator();
@@ -20,7 +22,7 @@ class Concord extends StatelessWidget {
         title: 'Concord',
         // For testing, change the assignment of home to be whatever screen you're working on
         // Example: home: AuthScreen()
-        home: HomeScreen(),
+        home: RequestDetails(),
       ),
     );
   }
