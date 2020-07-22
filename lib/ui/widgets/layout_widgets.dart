@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../utils/locator.dart';
 import '../theme/theme.dart';
 
+/// A rectangular section header to help organize pages in blocks.
 class SectionBanner extends StatelessWidget {
   final String title;
   final Color bannerColor;

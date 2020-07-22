@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../utils/locator.dart';
 import '../theme/theme.dart';
 
+/// A Concord style button to be used at the end of forms and request pages.
 class SubmitButton extends StatelessWidget {
   final String text;
   final Function() onTap;
