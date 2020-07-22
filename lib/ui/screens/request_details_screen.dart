@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../utils/locator.dart';
 import '../theme/theme.dart';
 
+/// The details screen for a community bulletin that is still open. 
 class RequestDetails extends StatelessWidget {
   const RequestDetails({Key key}) : super(key: key);
 
