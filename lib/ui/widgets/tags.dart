@@ -89,7 +89,7 @@ class _TagPickerState extends State<TagPicker> {
           removeButton: widget.removable ?
             ItemTagsRemoveButton(
               backgroundColor: widget.removeButtonColor ?? _appTheme.secondaryText,
-              onRemoved: (){
+              onRemoved: () {
                 setState(() {
                   widget.tags.removeAt(index);
                 });
