@@ -24,7 +24,7 @@ class CommunityBulletinTile extends StatelessWidget {
     double height = 98;
 
     return Container(
-      //if there is an image, the tile will be longer to accommodate the thumb nail image
+      // If there is an image, the tile will be longer to accommodate the thumbnail image
       width: image != null ? MediaQuery.of(context).size.width-16 :  MediaQuery.of(context).size.width-16-height,
       height: height,
       decoration: BoxDecoration(
@@ -40,7 +40,6 @@ class CommunityBulletinTile extends StatelessWidget {
         ]
       ),
       child: image != null ?
-        //if there is an image
         Row(
           children: <Widget>[
             AssetThumb(
@@ -56,7 +55,7 @@ class CommunityBulletinTile extends StatelessWidget {
     );
   }
 
-  Padding _textPortion(){
+  Padding _textPortion() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 16, 12, 8),
       child: description != null ? 
@@ -89,7 +88,7 @@ class CommunityBulletinTile extends StatelessWidget {
     );
   }
 
-  Text _title(){
+  Text _title() {
     return Text(
       title,
       style: TextStyle(
@@ -242,4 +241,3 @@ class OrganizationTile extends StatelessWidget {
     );
   }
 }
-
