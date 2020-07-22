@@ -63,7 +63,7 @@ class _TagPickerState extends State<TagPicker> {
         hintTextColor: Colors.grey,
         suggestionTextColor: _appTheme.secondaryText,
         suggestions: widget.suggestions ?? null,
-        onSubmitted: (String string){
+        onSubmitted: (String string) {
           setState(() {
             widget.tags.add(string);
           });
