@@ -20,7 +20,7 @@ class SectionBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    ConcordThemeData _appTheme = locator<ConcordThemeManager>().theme;
+    final ConcordThemeData _appTheme = locator<ConcordThemeManager>().theme;
     
     return Container(
       color: bannerColor ?? _appTheme.bannerColor,
