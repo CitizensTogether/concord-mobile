@@ -41,7 +41,7 @@ class _TagPickerState extends State<TagPicker> {
   final ConcordThemeData _appTheme = locator<ConcordThemeManager>().theme;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     print('init');
     widget.tags = widget.initTags ?? [];
