@@ -63,7 +63,7 @@ class CommunityBulletinTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 16, 12, 8),
       child: description != null ? 
-        //if there's both a title and description
+        // If there's both a title and description, display both in a column.
        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -81,7 +81,7 @@ class CommunityBulletinTile extends StatelessWidget {
             )
           ],
         )
-        //if there is only a title and no description
+        // If there is only a title and no description, display just the title centered in the tile.
         : Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
