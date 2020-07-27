@@ -39,7 +39,7 @@ class RequestDetails extends StatelessWidget {
   }
 
   /// The back button, request tile, request statistics, and status indicator.
-  Row _headerRow(BuildContext context){
+  Row _headerRow(BuildContext context) {
     return Row(
       children: <Widget>[
 
@@ -84,7 +84,7 @@ class RequestDetails extends StatelessWidget {
   }
 
   /// The description and the map preview with the address.
-  Widget _midRow(){
+  Widget _midRow() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
       child: Column(
@@ -103,7 +103,7 @@ class RequestDetails extends StatelessWidget {
   }
   
   /// The requestor's name and profile picture, and a label for the section.
-  Widget _requestorInformation(){
+  Widget _requestorInformation() {
     return InformationSection(
       title: 'Requester',
       child: Row(
@@ -130,7 +130,7 @@ class RequestDetails extends StatelessWidget {
   }
 
   /// The skills required for the request in a tags list, and a label for the section.
-  Widget _skillsRequired(){
+  Widget _skillsRequired() {
     return InformationSection(
       title: 'Skills required',
       child: TagPicker(
@@ -147,7 +147,7 @@ class RequestDetails extends StatelessWidget {
   /// This section should not render if the requester does not upload any images.
   /// This uses the InformationSection widget, but the placeholder text should never
   /// be used, since the section will not exist if a child is not provided.
-  Widget _images(){
+  Widget _images() {
     return InformationSection(
       title: 'Additional',
       placeholderText: 'Not here',
@@ -155,7 +155,7 @@ class RequestDetails extends StatelessWidget {
   }
 
   /// Any updates posted for the bulletin wil be displayed here, each with a time and text.
-  Widget _updates(){
+  Widget _updates() {
     return InformationSection(
       title: 'Updates',
       placeholderText: 'There have not been any updates for this bulletin!',
@@ -186,7 +186,7 @@ class RequestDetails extends StatelessWidget {
   }
 
   /// The accept request button and a "not interested" text.
-  Widget _actionButtons(){
+  Widget _actionButtons() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 8.0),
       alignment: Alignment.center,
@@ -250,7 +250,7 @@ class InformationSection extends StatelessWidget {
 
   }
 
-  Widget _childProvided(){
+  Widget _childProvided() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
       child: Column(
@@ -270,7 +270,7 @@ class InformationSection extends StatelessWidget {
     );
   }
 
-  Widget _notProvided(){
+  Widget _notProvided() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
       child: Column(

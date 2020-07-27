@@ -2,6 +2,7 @@ import 'package:concord/ui/theme/theme.dart';
 import 'package:concord/utils/locator.dart';
 import 'package:flutter/material.dart';
 
+/// A widget to indicate the status of a bulletin.
 class StatusIndicator extends StatelessWidget {
 
   /// A string indicating which of 3 possible status indicators should be drawn.
@@ -34,7 +35,7 @@ class StatusIndicator extends StatelessWidget {
     else return _closedStatus();
   }
 
-  Column _openStatus(){
+  Column _openStatus() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
@@ -57,7 +58,7 @@ class StatusIndicator extends StatelessWidget {
     );
   }
 
-  Column _takenStatus(){
+  Column _takenStatus() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
@@ -80,7 +81,7 @@ class StatusIndicator extends StatelessWidget {
     );
   }
 
-  Column _closedStatus(){
+  Column _closedStatus() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
