@@ -30,7 +30,7 @@ class StatusIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     if (status == "open") {
       return _openStatus();
-    else if( status == "taken")
+    } else if (status == "taken") {
       return _takenStatus();
     } else {
         return _closedStatus();
