@@ -22,7 +22,7 @@ class Concord extends StatelessWidget {
         title: 'Concord',
         // For testing, change the assignment of home to be whatever screen you're working on
         // Example: home: AuthScreen()
-        home: RequestDetails(),
+        home: HomeScreen(),
       ),
     );
   }
