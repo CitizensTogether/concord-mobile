@@ -32,7 +32,9 @@ class StatusIndicator extends StatelessWidget {
       return _openStatus();
     else if( status == "taken")
       return _takenStatus();
-    else return _closedStatus();
+    } else {
+        return _closedStatus();
+    }
   }
 
   Column _openStatus() {
