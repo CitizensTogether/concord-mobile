@@ -242,12 +242,7 @@ class InformationSection extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-
-    if( child != null )
-      return _childProvided();
-
-    else return _notProvided();
-
+    return child != null ? _childProvided() : _notProvided();
   }
 
   Widget _childProvided() {
