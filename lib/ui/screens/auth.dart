@@ -3,53 +3,121 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:validators/validators.dart' as validator;
- 
 
-
-class AuthWidget extends StatefulWidget {
+/// The primary screen where the user can sign in or sign up for Concord.
+class AuthScreen extends StatefulWidget {
   @override
-  _AuthWidgetState createState() => _AuthWidgetState();
+  _AuthScreenState createState() => _AuthScreenState();
 }
 
-/// This is the state for the widget and includes the build function for the application.
-class _AuthWidgetState extends State<AuthWidget> {
+// Widget state for the [AuthScreen].
+class _AuthScreenState extends State<AuthScreen> {
   static final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     /// Stores the size of the screen to avoid multiple queries
-    double ScreenWidth = MediaQuery.of(context).size.width;
-
-    /// stores form key
-    
+    double screenWidth = MediaQuery.of(context).size.width;
     SignUpDetails initialDetails = SignUpDetails();
     ConcordThemeData theme = ConcordThemeManager.lightTheme;
-    
-    /// main widget
-    return Scaffold(
-      backgroundColor: theme.mainColor,
 
-      /// Header (Welcome!)
-      body: Container(
-        
-        child: SingleChildScrollView(
-          child: SizedBox(
-            width: ScreenWidth,
-            child: Column(children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(20, 50, 20, 5),
-                child: Text(
-                  'Welcome!',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.raleway(
-                    textStyle: TextStyle(
-                      color: theme.bannerColor,
-                      fontSize: 42,
+    final Widget formHeader = Padding(
+      padding: EdgeInsets.fromLTRB(20, 50, 20, 5),
+      child: Text(
+        'Welcome!',
+        textAlign: TextAlign.center,
+        style: GoogleFonts.raleway(
+          textStyle: TextStyle(
+            color: theme.bannerColor,
+            fontSize: 42,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+
+    final Widget inputFormFields = Card(
+      shape: RoundedRectangleBorder(
+        side: BorderSide(color: Colors.black, width: 1),
+        borderRadius: BorderRadius.circular(6),
+      ),
+      color: theme.backgroundColor,
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(5, 10, 5, 20),
+        child: SizedBox(
+          width: screenWidth,
+          height: 220,
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    'Email or Phone Number:',
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
+                  CustomField(
+                    hintText: 'Email/phone number',
+                    isEmail: true,
+                    onSaved: (String value) {
+                      if (validator.isEmail(value)) {
+                        initialDetails.email = value;
+                      }
+                      if (validator.isNumeric(value) &&
+                          validator.isLength(value, 10)) {
+                        initialDetails.phoneNum = value;
+                      }
+                      return null;
+                    },
+                    validator: (String value) {
+                      if (!validator.isEmail(value) ||
+                          !validator.isNumeric(value)) {
+                        return 'Please enter a valid email or phone';
+                      }
+                      return null;
+                    },
+                  ),
+                  Text(
+                    'Password',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  CustomField(
+                    hintText: 'Password',
+                    isPassword: true,
+                    onSaved: (String value) {
+                      if (validator.isLength(value, 8)) {
+                        initialDetails.password = value;
+                      }
+                      return null;
+                    },
+                    validator: (String value) {
+                      if (!validator.isLength(value, 8)) {
+                        return 'Password must be at least 8 characters';
+                      }
+                      return null;
+                    },
+                  ),
+                ],
               ),
+            ),
+          ),
+        ),
+      ),
+    );
 
+    return Scaffold(
+      backgroundColor: theme.mainColor,
+      body: Container(
+        child: SingleChildScrollView(
+          child: SizedBox(
+            width: screenWidth,
+            child: Column(children: [
+              formHeader,
               /// Card description (Sign up with email/phone)
               Align(
                 alignment: Alignment.topLeft,
@@ -70,117 +138,47 @@ class _AuthWidgetState extends State<AuthWidget> {
               /// Data input card with text inputs and labels
               Form(
                 key: formKey,
-                child: Column(children: <Widget>[
-                  Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                      /// padding around card
-                      padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
-                      child: Card(
-                        /// card to hold inputs
-                        shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.black, width: 1),
-                            borderRadius: BorderRadius.circular(6)),
-                        color: theme.backgroundColor,
-                        child: Padding(
-                          /// internal card padding
-                          padding: EdgeInsets.fromLTRB(5, 10, 5, 20),
-                          child: SizedBox(
-                            /// determines card size
-                            width: ScreenWidth,
-                            height: 220,
-                            child: Align(
-                              alignment: Alignment.topLeft,
-                              child: Padding(
-                                /// padding between inputs
-                                padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
-                                child: Column(
-                                  children: <Widget>[
-                                    Text('Email or Phone Number:', style: TextStyle(fontWeight: FontWeight.bold)),
-                                    CustomField(
-                                      hintText: 'email/phone',
-                                      isEmail: true,
-                                      onSaved: (String value) {
-                                        if (validator.isEmail(value)) {
-                                          /// saves appropriate values to the initialDetails object
-                                          initialDetails.email = value;
-                                        }
-                                        if (validator.isNumeric(value) &&
-                                            validator.isLength(value, 10)) {
-                                          initialDetails.phoneNum = value;
-                                        }
-                                        return null;
-                                      },
-                                      validator: (String value) {
-                                        /// checks to make sure that a valid email or phone number is provided
-                                        if (!validator.isEmail(value) &&
-                                            !(validator.isNumeric(value) &&
-                                                validator.isLength(value, 10))) {
-                                          return 'Please enter a valid email or phone';
-                                        }
-                                        return null;
-                                      },
-                                    ),
-                                    Text('Password', style: TextStyle(fontWeight: FontWeight.bold)),
-                                    CustomField(
-                                      hintText: 'Password',
-                                      isPassword: true,
-                                      onSaved: (String value) {
-                                        if (validator.isLength(value, 8)) {
-                                          /// saves password to initialDetails object
-                                          initialDetails.password = value;
-                                        }
-                                        return null;
-                                      },
-                                      validator: (String value) {
-                                        /// makes sure that the password is at least 8 characters long
-                                        if (!validator.isLength(value, 8)) {
-                                          return 'Password must be at least 8 characters';
-                                        }
-                                        return null;
-                                      },
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
+                child: Column(
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
+                        child: inputFormFields,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Align(
+                /// Sign Up button using inputted information
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(0, 30, 0, 10),
+                  child: RaisedButton(
+                    child: SizedBox(
+                      width: 200,
+                      child: Text(
+                        'Sign Up',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                            color: theme.secondaryText,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
                           ),
                         ),
                       ),
                     ),
+                    onPressed: () {
+                      if (formKey.currentState.validate()) {
+                        formKey.currentState.save();
+                      }
+                    },
+                    color: theme.bannerColor,
                   ),
-                  Align(
-
-                      /// Sign Up button using inputted information
-                      alignment: Alignment.center,
-                      child: Padding(
-                          padding: EdgeInsets.fromLTRB(0, 30, 0, 10),
-                          child: RaisedButton(
-                            child: SizedBox(
-                                width: 200,
-                                child: Text(
-                                  'Sign Up',
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.roboto(
-                                    textStyle: TextStyle(
-                                        color: theme.secondaryText,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14),
-                                  ),
-                                ),
-                              ),
-                            onPressed: () {
-                              if (formKey.currentState.validate()) {
-                                formKey.currentState.save();
-                              }
-
-                              /// Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen(initialDetails))//pushes the data from the object into the registeration screen
-                            },
-                            color: theme.bannerColor,
-                          ))),
-                ]),
+                ),
               ),
-
               Center(
                 child: Text(
                   'OR',
@@ -189,9 +187,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                   ),
                 ),
               ),
-
               Align(
-                /// Sign up with Google Authorization
                 alignment: Alignment.center,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
@@ -199,17 +195,19 @@ class _AuthWidgetState extends State<AuthWidget> {
                     child: SizedBox(
                       width: 200,
                       child: Text(
-                        'continue with Google',
+                        'Continue with Google',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
-                                color: theme.secondaryText,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14)),
+                          textStyle: TextStyle(
+                              color: theme.secondaryText,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                          ),
+                        ),
                       ),
                     ),
                     onPressed: () {
-                      /// for later use with google auth backend
+                      // TODO: Implement sign-in with Google auth
                     },
                     color: theme.bannerColor,
                   ),
@@ -223,23 +221,22 @@ class _AuthWidgetState extends State<AuthWidget> {
   }
 }
 
-/// Creates a custom input field to offer the dark material aesthetic instead of general line entry.
+/// An input field with a dark material aesthetic.
 class CustomField extends StatefulWidget {
+  /// A form hint for the user.
+  final String hintText;
 
-/// text to be overwritten
-  String hintText;
+  /// A function that checks the validity of this field's contents.
+  final Function validator;
 
-   /// accepts function to validate input data using validators package
-  Function validator;
-
- /// function called upon saving FormState
-  Function onSaved;
+  /// Callback triggered when form state is saved.
+  final Function onSaved;
 
   /// if password obscures text
-  bool isPassword;
+  final bool isPassword;
 
   /// if email allows email keyboard to appear
-  bool isEmail;
+  final bool isEmail;
 
   CustomField(
       {this.hintText,
@@ -253,28 +250,29 @@ class CustomField extends StatefulWidget {
 }
 
 class _CustomFieldState extends State<CustomField> {
-    var _myController = TextEditingController();
+  var _myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     ConcordThemeData theme = ConcordThemeManager.lightTheme;
     return Padding(
-        padding: EdgeInsets.all(8.0),
-        child: TextFormField(
-          decoration: InputDecoration(
-              hintText: widget.hintText,
-              contentPadding: EdgeInsets.all(15.0),
-              border: InputBorder.none,
-              filled: true,
-              fillColor: theme.mainColor),
-          obscureText: widget.isPassword ? true : false,
-          validator: widget.validator,
-          onSaved: widget.onSaved,
-          keyboardType:
-              widget.isEmail ? TextInputType.emailAddress : TextInputType.text,
-          controller: _myController,
+      padding: EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+          hintText: widget.hintText,
+          contentPadding: EdgeInsets.all(15.0),
+          border: InputBorder.none,
+          filled: true,
+          fillColor: theme.mainColor,
         ),
-      );
+        obscureText: widget.isPassword,
+        validator: widget.validator,
+        onSaved: widget.onSaved,
+        keyboardType:
+            widget.isEmail ? TextInputType.emailAddress : TextInputType.text,
+        controller: _myController,
+      ),
+    );
   }
 }
 

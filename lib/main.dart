@@ -1,12 +1,8 @@
-import 'package:concord/ui/screens/auth.dart';
 import 'package:concord/ui/screens/home_screen.dart';
-import 'package:concord/ui/screens/request_form_screen.dart';
 import 'package:concord/ui/theme/theme.dart';
 import 'package:concord/utils/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'ui/screens/request_details_screen.dart';
 
 /// Initialize the app.
 void main() {
