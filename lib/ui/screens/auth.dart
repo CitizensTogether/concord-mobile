@@ -19,16 +19,16 @@ class AuthWidget extends StatefulWidget {
 class _AuthWidgetState extends State<AuthWidget> {
   @override
   Widget build(BuildContext context) {
-    //stores the size of the screen to avoid multiple queries
+    ///stores the size of the screen to avoid multiple queries
     double ScreenWidth = MediaQuery.of(context).size.width;
-    //stores form key
+    ///stores form key
     final formKey = GlobalKey<FormState>();
     SignUpDetails initialDetails = SignUpDetails();
 
-    //main widget
+    ///main widget
     return Scaffold(
         backgroundColor: Color(0xFF75b79e),
-        //Header (Welcome!)
+        ///Header (Welcome!)
         body: Container(
             color: Color(0xFF75b79e),
             child: SingleChildScrollView(
@@ -47,7 +47,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                             )),
                           )),
 
-                      //Card description (Sign up with email/phone)
+                      ///Card description (Sign up with email/phone)
                       Align(
                         alignment: Alignment.topLeft,
                         child: Padding(
@@ -63,17 +63,17 @@ class _AuthWidgetState extends State<AuthWidget> {
                         ),
                       ),
 
-                      //Data input card with text inputs and labels
+                      ///Data input card with text inputs and labels
                       Form(
                           key: formKey,
                           child: Column(children: <Widget>[
                             Align(
                                 alignment: Alignment.center,
                                 child: Padding(
-                                    //padding around card
+                                    ///padding around card
                                     padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
                                     child: Card(
-                                        //card to hold inputs
+                                        ///card to hold inputs
                                         shape: RoundedRectangleBorder(
                                             side: BorderSide(
                                                 color: Colors.black, width: 1),
@@ -81,18 +81,18 @@ class _AuthWidgetState extends State<AuthWidget> {
                                                 BorderRadius.circular(6)),
                                         color: Color(0xFFafd9bb),
                                         child: Padding(
-                                            //internal card padding
+                                            ///internal card padding
                                             padding: EdgeInsets.fromLTRB(
                                                 5, 10, 5, 20),
                                             child: SizedBox(
-                                                //determines card size
+                                                ///determines card size
                                                 width: ScreenWidth,
                                                 height: 220,
                                                 child: Align(
                                                     alignment:
                                                         Alignment.topLeft,
                                                     child: Padding(
-                                                        //padding between inputs
+                                                        ///padding between inputs
                                                         padding:
                                                             EdgeInsets.fromLTRB(
                                                                 5, 0, 5, 5),
@@ -109,7 +109,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                                                                 if (validator
                                                                     .isEmail(
                                                                         value)) {
-                                                                  //saves appropriate values to the initialDetails object
+                                                                  ///saves appropriate values to the initialDetails object
                                                                   initialDetails
                                                                           .email =
                                                                       value;
@@ -129,7 +129,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                                                               },
                                                               validator: (String
                                                                   value) {
-                                                                //checks to make sure that a valid email or phone number is provided
+                                                                ///checks to make sure that a valid email or phone number is provided
                                                                 if (!validator
                                                                         .isEmail(
                                                                             value) &&
@@ -154,7 +154,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                                                                     .isLength(
                                                                         value,
                                                                         8)) {
-                                                                  //saves password to initialDetails object
+                                                                  ///saves password to initialDetails object
                                                                   initialDetails
                                                                           .password =
                                                                       value;
@@ -163,7 +163,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                                                               },
                                                               validator: (String
                                                                   value) {
-                                                                //makes sure that the password is at least 8 characters long
+                                                                ///makes sure that the password is at least 8 characters long
                                                                 if (!validator
                                                                     .isLength(
                                                                         value,
@@ -176,7 +176,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                                                           ],
                                                         )))))))),
                             Align(
-                                //Sign Up button using inputted information
+                                ///Sign Up button using inputted information
                                 alignment: Alignment.center,
                                 child: Padding(
                                     padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
@@ -195,7 +195,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                                         if (formKey.currentState.validate()) {
                                           formKey.currentState.save();
                                         }
-                                        //Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen(initialDetails))//pushes the data from the object into the registeration screen
+                                        ///Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen(initialDetails))//pushes the data from the object into the registeration screen
                                       },
                                       color: Color(0xFFEEF9BF),
                                     ))),
@@ -208,7 +208,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                                       TextStyle(color: Color(0xFFEEF9BF))))),
 
                       Align(
-                          //Sign up with Google Authorization
+                          ///Sign up with Google Authorization
                           alignment: Alignment.center,
                           child: Padding(
                               padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
@@ -223,7 +223,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 14)))),
                                 onPressed: () {
-                                  //for later use with google auth backend
+                                  ///for later use with google auth backend
                                 },
                                 color: Color(0xFFEEF9BF),
                               ))),
@@ -232,12 +232,12 @@ class _AuthWidgetState extends State<AuthWidget> {
 }
 
 class CustomField extends StatelessWidget {
-  // creates a custom input feild to offer the dark material asthetic instead of general line entry
-  String hintText; //text to be overwritten
-  Function validator; //function to validate data
-  Function onSaved; //function to act upon saving FormState
-  bool isPassword; //if password obscures text
-  bool isEmail; //if email allows email keyboard to appear
+  /// creates a custom input feild to offer the dark material asthetic instead of general line entry
+  String hintText; ///text to be overwritten
+  Function validator; ///function to validate data
+  Function onSaved; ///function to act upon saving FormState
+  bool isPassword; ///if password obscures text
+  bool isEmail; ///if email allows email keyboard to appear
 
   CustomField(
       {this.hintText,
@@ -264,6 +264,8 @@ class CustomField extends StatelessWidget {
         ));
   }
 }
+
+
 
 /*
 Title: Sign Up Details
