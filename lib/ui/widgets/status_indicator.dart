@@ -47,15 +47,19 @@ class StatusIndicator extends StatelessWidget {
           height: width,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            border: Border.all(color:_appTheme.urgentColor, width: 2.0)
+            border: Border.all(
+              color: _appTheme.urgentColor,
+              width: 2.0,
+            )
           ),
         ),
         SizedBox(height: 4.0),
-        Text('open!',
+        Text(
+          'Open',
           style: TextStyle(
-            color: textColor ?? _appTheme.secondaryColor
-          )
-        )
+            color: textColor ?? _appTheme.secondaryColor,
+          ),
+        ),
       ],
     );
   }
@@ -74,11 +78,12 @@ class StatusIndicator extends StatelessWidget {
           ),
         ),
         SizedBox(height: 4.0),
-        Text('taken',
-         style: TextStyle(
-            color: textColor ?? _appTheme.secondaryColor
-          )
-        )
+        Text(
+          'Taken',
+          style: TextStyle(
+            color: textColor ?? _appTheme.secondaryColor,
+          ),
+        ),
       ],
     );
   }
@@ -101,11 +106,12 @@ class StatusIndicator extends StatelessWidget {
           ),
         ),
         SizedBox(height: 4.0),
-        Text('closed',
-         style: TextStyle(
-            color: textColor ?? _appTheme.secondaryColor
-          )
-        )
+        Text(
+          'Fulfilled',
+          style: TextStyle(
+            color: textColor ?? _appTheme.secondaryColor,
+          ),
+        ),
       ],
     );
   }

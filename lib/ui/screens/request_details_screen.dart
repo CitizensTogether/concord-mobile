@@ -29,11 +29,11 @@ class RequestDetails extends StatelessWidget {
                 _skillsRequired(),
                 _images(),
                 _updates(),
-                _actionButtons()
+                _actionButtons(),
               ],
             ),
           ),
-        )
+        ),
       ),
     );
   }
@@ -49,7 +49,9 @@ class RequestDetails extends StatelessWidget {
             color: _appTheme.mainText,
             size: 30
           ),
-          onPressed: (){ Navigator.of(context).pop(); }
+          onPressed: () {
+            Navigator.of(context).pop();
+          }
         ),
 
         // Title and statistics
@@ -59,12 +61,12 @@ class RequestDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                "Pick up laundry and donuts",
+                'Pick up laundry and donuts',
                 softWrap: true,
                 style: TextStyle(
                   fontFamily: "Raleway",
                   fontWeight: FontWeight.w700,
-                  fontSize: 28
+                  fontSize: 28,
                 ),
               ),
               SizedBox( height: 4.0),
@@ -94,9 +96,9 @@ class RequestDetails extends StatelessWidget {
             textAlign: TextAlign.left,
             style: TextStyle(
               color: _appTheme.mainText,
-              fontSize: 14
+              fontSize: 14,
             ),
-          )
+          ),
         ],
       ),
     );
@@ -114,16 +116,16 @@ class RequestDetails extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 8.0),
             decoration: BoxDecoration(
               color: _appTheme.secondaryColor.withOpacity(0.5),
-              shape: BoxShape.circle
+              shape: BoxShape.circle,
             ),
           ),
           Text(
             'LaQuisha Johnson',
             style: TextStyle(
               color: _appTheme.mainText,
-              fontSize: 18
-            )
-          )
+              fontSize: 18,
+            ),
+          ),
         ],
       ),
     );
@@ -163,21 +165,29 @@ class RequestDetails extends StatelessWidget {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Text( "9:27 AM", style: TextStyle(color: _appTheme.mainColor)),
-              SizedBox( width: 8.0),
+              Text(
+                '9:27 AM',
+                style: TextStyle(color: _appTheme.mainColor),
+              ),
+              SizedBox(width: 8.0),
               Expanded(
-                child: Text("The laundry smells more like donuts by the minute.")
-              )
+                child: Text('The laundry smells more like donuts by the minute.'),
+              ),
             ],
           ),
           SizedBox(height: 8.0),
           Row(
             children: <Widget>[
-              Text( "May 5th", style: TextStyle(color: _appTheme.mainColor)),
+              Text(
+                'May 5th',
+                style: TextStyle(
+                  color: _appTheme.mainColor,
+                ),
+              ),
               SizedBox( width: 8.0),
               Expanded(
-                child: Text("The manager lady just informed me that she spilled coffee on my underpants.")
-              )
+                child: Text('The manager lady just informed me that she spilled coffee on my underpants.'),
+              ),
             ],
           ),
         ],
@@ -211,7 +221,6 @@ class RequestDetails extends StatelessWidget {
       ),
     );
   }
-
 }
 
 /// A layout widget used to maintian consistency in the sections of this page.
@@ -259,8 +268,8 @@ class InformationSection extends StatelessWidget {
             ),
           ),
           SizedBox(height: 4.0),
-          child
-        ]
+          child,
+        ],
       ),
     );
   }
@@ -283,12 +292,12 @@ class InformationSection extends StatelessWidget {
             child: Text(
               placeholderText,
               style: TextStyle(
-                fontSize: titleSize+2,
-                color: _appTheme.mainText
+                fontSize: titleSize + 2,
+                color: _appTheme.mainText,
               ),
             ),
-          )
-        ]
+          ),
+        ],
       ),
     );
   }
