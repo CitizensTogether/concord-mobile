@@ -1,7 +1,6 @@
 import 'package:concord/ui/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:validators/validators.dart' as validator;
 
 /// The primary screen where the user can sign in or sign up for Concord.
@@ -27,10 +26,10 @@ class _AuthScreenState extends State<AuthScreen> {
         'Welcome!',
         textAlign: TextAlign.center,
         style: TextStyle(
-            color: theme.bannerColor,
-            fontSize: 42,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'Raleway',
+          color: theme.bannerColor,
+          fontSize: 42,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Raleway',
         ),
       ),
     );
@@ -117,6 +116,7 @@ class _AuthScreenState extends State<AuthScreen> {
             width: screenWidth,
             child: Column(children: [
               formHeader,
+
               /// Card description (Sign up with email/phone)
               Align(
                 alignment: Alignment.topLeft,
@@ -125,9 +125,8 @@ class _AuthScreenState extends State<AuthScreen> {
                   child: Text(
                     'Sign up with email/phone:',
                     style: TextStyle(
-                        color: theme.bannerColor,
-                        fontSize: 16,
-                      
+                      color: theme.bannerColor,
+                      fontSize: 16,
                     ),
                   ),
                 ),
@@ -159,12 +158,11 @@ class _AuthScreenState extends State<AuthScreen> {
                       child: Text(
                         'Sign Up',
                         textAlign: TextAlign.center,
-                        style: 
-                          TextStyle(
-                            color: theme.secondaryText,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                          ),
+                        style: TextStyle(
+                          color: theme.secondaryText,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                     onPressed: () {
@@ -179,8 +177,7 @@ class _AuthScreenState extends State<AuthScreen> {
               Center(
                 child: Text(
                   'OR',
-                  style: 
-                    TextStyle(color: theme.bannerColor),
+                  style: TextStyle(color: theme.bannerColor),
                 ),
               ),
               Align(
@@ -194,10 +191,10 @@ class _AuthScreenState extends State<AuthScreen> {
                         'Continue with Google',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                              color: theme.secondaryText,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                          ),
+                          color: theme.secondaryText,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                     onPressed: () {
