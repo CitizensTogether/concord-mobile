@@ -96,7 +96,7 @@ class ConcordThemeManager with ChangeNotifier {
         brightness: Brightness.light,
         fontFamily: 'Lato',
         buttonColor: mossGreen,
-        textTheme: concordTextTheme
+        textTheme: concordTextTheme,
       ),
       mainText: blueText,
       secondaryText: greenText,
