@@ -13,13 +13,14 @@ class AuthWidget extends StatefulWidget {
 
 /// This is the state for the widget and includes the build function for the application.
 class _AuthWidgetState extends State<AuthWidget> {
+  static final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     /// Stores the size of the screen to avoid multiple queries
     double ScreenWidth = MediaQuery.of(context).size.width;
 
     /// stores form key
-    final formKey = GlobalKey<FormState>();
+    
     SignUpDetails initialDetails = SignUpDetails();
     ConcordThemeData theme = ConcordThemeManager.lightTheme;
     
@@ -223,7 +224,7 @@ class _AuthWidgetState extends State<AuthWidget> {
 }
 
 /// Creates a custom input field to offer the dark material aesthetic instead of general line entry.
-class CustomField extends StatelessWidget {
+class CustomField extends StatefulWidget {
 
 /// text to be overwritten
   String hintText;
@@ -248,22 +249,30 @@ class CustomField extends StatelessWidget {
       this.isEmail = false});
 
   @override
+  _CustomFieldState createState() => _CustomFieldState();
+}
+
+class _CustomFieldState extends State<CustomField> {
+    var _myController = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
     ConcordThemeData theme = ConcordThemeManager.lightTheme;
     return Padding(
         padding: EdgeInsets.all(8.0),
         child: TextFormField(
           decoration: InputDecoration(
-              hintText: hintText,
+              hintText: widget.hintText,
               contentPadding: EdgeInsets.all(15.0),
               border: InputBorder.none,
               filled: true,
               fillColor: theme.mainColor),
-          obscureText: isPassword ? true : false,
-          validator: validator,
-          onSaved: onSaved,
+          obscureText: widget.isPassword ? true : false,
+          validator: widget.validator,
+          onSaved: widget.onSaved,
           keyboardType:
-              isEmail ? TextInputType.emailAddress : TextInputType.text,
+              widget.isEmail ? TextInputType.emailAddress : TextInputType.text,
+          controller: _myController,
         ),
       );
   }
