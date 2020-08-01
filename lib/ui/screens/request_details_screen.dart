@@ -92,7 +92,7 @@ class RequestDetails extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text(
-            "I left my laundry in Shipley Donuts one night, and the manager lady said she'd hold onto it for me, but I don't have any clothes to wear, so I can't leave the house out of fear of public indecency. Help a girl out.",
+            'I left my laundry in Shipley Donuts one night, and the manager lady said she\'d hold onto it for me, but I don\'t have any clothes to wear, so I can\'t leave the house out of fear of public indecency. Help a girl out.',
             textAlign: TextAlign.left,
             style: TextStyle(
               color: _appTheme.mainText,
