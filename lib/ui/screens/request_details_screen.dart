@@ -221,7 +221,6 @@ class RequestDetails extends StatelessWidget {
       ),
     );
   }
-
 }
 
 /// A layout widget used to maintian consistency in the sections of this page.
@@ -269,8 +268,8 @@ class InformationSection extends StatelessWidget {
             ),
           ),
           SizedBox(height: 4.0),
-          child
-        ]
+          child,
+        ],
       ),
     );
   }
@@ -293,12 +292,12 @@ class InformationSection extends StatelessWidget {
             child: Text(
               placeholderText,
               style: TextStyle(
-                fontSize: titleSize+2,
-                color: _appTheme.mainText
+                fontSize: titleSize + 2,
+                color: _appTheme.mainText,
               ),
             ),
-          )
-        ]
+          ),
+        ],
       ),
     );
   }
