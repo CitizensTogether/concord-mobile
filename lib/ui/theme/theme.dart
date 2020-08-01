@@ -5,6 +5,74 @@ class ConcordThemeManager with ChangeNotifier {
 
   ConcordThemeData get theme => _currentTheme;
 
+  static const TextTheme concordTextTheme = TextTheme(
+    headline1: TextStyle(
+      fontFamily: "Raleway",
+      fontSize: 96,
+      fontWeight: FontWeight.w400,
+    ),
+    headline2: TextStyle(
+      fontFamily: "Raleway",
+      fontSize: 60,
+      fontWeight: FontWeight.w400,
+    ),
+    headline3: TextStyle(
+      fontFamily: "Raleway",
+      fontSize: 48,
+      fontWeight: FontWeight.w700,
+    ),
+    headline4: TextStyle(
+      fontFamily: "Raleway",
+      fontSize: 34,
+      fontWeight: FontWeight.w700,
+    ),
+    headline5: TextStyle(
+      fontFamily: "Raleway",
+      fontSize: 24,
+      fontWeight: FontWeight.w700,
+    ),
+    headline6: TextStyle(
+      fontFamily: "Raleway",
+      fontSize: 20,
+      fontWeight: FontWeight.w700,
+    ),
+    bodyText1: TextStyle(
+      fontFamily: "Lato",
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
+    ),
+    bodyText2: TextStyle(
+      fontFamily: "Lato",
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+    ),
+    subtitle1: TextStyle(
+      fontFamily: "Lato",
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+    ),
+    subtitle2: TextStyle(
+      fontFamily: "Lato",
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+    ),
+    button: TextStyle(
+      fontFamily: "Raleway",
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+    ),
+    overline: TextStyle(
+      fontFamily: "Lato",
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
+    ),
+    caption: TextStyle(
+      fontFamily: "Lato",
+      fontSize: 12,
+      fontWeight: FontWeight.w500
+    ),
+  );
+
   //light theme data
   static const Color offWhite = Color(0xFFFFFCF2);
   static const Color lightPink = Color(0xFFFEEFE9);
@@ -15,6 +83,7 @@ class ConcordThemeManager with ChangeNotifier {
   static const Color blue = Color(0xFF6A8CAF);
   static const Color blueText = Color(0xFF47627E);
   static const Color greenText = Color(0xFF5D937E);
+  
 
   static ConcordThemeData lightTheme = ConcordThemeData(
       themeData: ThemeData(
@@ -22,6 +91,7 @@ class ConcordThemeManager with ChangeNotifier {
         brightness: Brightness.light,
         fontFamily: 'Lato',
         buttonColor: mossGreen,
+        textTheme: concordTextTheme
       ),
       mainText: blueText,
       secondaryText: greenText,
