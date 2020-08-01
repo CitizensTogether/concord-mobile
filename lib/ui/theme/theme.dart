@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 /// A service to help dynamically change the theme at runtime
 class ConcordThemeManager with ChangeNotifier {
-
   /// The default theme of the app 
   ConcordThemeData _currentTheme = lightTheme;
 
