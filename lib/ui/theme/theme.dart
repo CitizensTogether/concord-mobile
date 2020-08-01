@@ -107,7 +107,7 @@ class ConcordThemeManager with ChangeNotifier {
       urgentColor: red,
       mainMono: offWhite,
       secondaryMono: lightPink,
-      textTheme: concordTextTheme
+      textTheme: concordTextTheme,
   );
 
   /// A function to change the app's current theme to the light theme.
