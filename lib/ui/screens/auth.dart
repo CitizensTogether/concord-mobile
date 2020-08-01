@@ -26,12 +26,11 @@ class _AuthScreenState extends State<AuthScreen> {
       child: Text(
         'Welcome!',
         textAlign: TextAlign.center,
-        style: GoogleFonts.raleway(
-          textStyle: TextStyle(
+        style: TextStyle(
             color: theme.bannerColor,
             fontSize: 42,
             fontWeight: FontWeight.bold,
-          ),
+            fontFamily: 'Raleway',
         ),
       ),
     );
@@ -125,11 +124,10 @@ class _AuthScreenState extends State<AuthScreen> {
                   padding: EdgeInsets.fromLTRB(40, 20, 0, 5),
                   child: Text(
                     'Sign up with email/phone:',
-                    style: GoogleFonts.roboto(
-                      textStyle: TextStyle(
+                    style: TextStyle(
                         color: theme.bannerColor,
                         fontSize: 16,
-                      ),
+                      
                     ),
                   ),
                 ),
@@ -161,13 +159,12 @@ class _AuthScreenState extends State<AuthScreen> {
                       child: Text(
                         'Sign Up',
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.roboto(
-                          textStyle: TextStyle(
+                        style: 
+                          TextStyle(
                             color: theme.secondaryText,
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
                           ),
-                        ),
                       ),
                     ),
                     onPressed: () {
@@ -182,9 +179,8 @@ class _AuthScreenState extends State<AuthScreen> {
               Center(
                 child: Text(
                   'OR',
-                  style: GoogleFonts.roboto(
-                    textStyle: TextStyle(color: theme.bannerColor),
-                  ),
+                  style: 
+                    TextStyle(color: theme.bannerColor),
                 ),
               ),
               Align(
@@ -197,13 +193,11 @@ class _AuthScreenState extends State<AuthScreen> {
                       child: Text(
                         'Continue with Google',
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.roboto(
-                          textStyle: TextStyle(
+                        style: TextStyle(
                               color: theme.secondaryText,
                               fontWeight: FontWeight.bold,
                               fontSize: 14,
                           ),
-                        ),
                       ),
                     ),
                     onPressed: () {
