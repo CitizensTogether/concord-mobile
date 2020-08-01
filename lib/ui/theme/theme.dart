@@ -88,7 +88,6 @@ class ConcordThemeManager with ChangeNotifier {
   static const Color blue = Color(0xFF6A8CAF);
   static const Color blueText = Color(0xFF47627E);
   static const Color greenText = Color(0xFF5D937E);
-  
   /// Light theme
   static ConcordThemeData lightTheme = ConcordThemeData(
       themeData: ThemeData(
