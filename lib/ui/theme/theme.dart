@@ -101,7 +101,9 @@ class ConcordThemeManager with ChangeNotifier {
       bannerColor: yellowGreen,
       urgentColor: red,
       mainMono: offWhite,
-      secondaryMono: lightPink);
+      secondaryMono: lightPink,
+      textTheme: concordTextTheme
+  );
 
   changeToLight() {
     _currentTheme = lightTheme;
@@ -126,6 +128,8 @@ class ConcordThemeData {
   final Color mainMono;
   final Color secondaryMono;
 
+  final TextTheme textTheme;
+
   Color opposite;
   Color antiOpposite;
 
@@ -139,7 +143,8 @@ class ConcordThemeData {
       @required this.bannerColor,
       @required this.urgentColor,
       @required this.mainMono,
-      @required this.secondaryMono}) {
+      @required this.secondaryMono,
+      @required this.textTheme,}) {
     opposite =
         themeData.brightness == Brightness.dark ? Colors.white : Colors.black;
     antiOpposite =

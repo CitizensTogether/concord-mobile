@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
         builder: (context, model, child) => Scaffold(
-              body: Center(child: Text(model.title)),
+              body: Center(child: Text(model.title,)),
               floatingActionButton: FloatingActionButton(
                 onPressed: model.updateCounter,
                 child: Icon(Icons.add),
