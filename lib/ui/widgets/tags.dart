@@ -85,7 +85,7 @@ class _TagPickerState extends State<TagPicker> {
       columns: 0,
       horizontalScroll: widget.horizontalScrollEnabled,
       runSpacing: 8,
-      textField: TagsTextField(
+      textField: widget.textFieldEnabled ? TagsTextField(
         enabled: widget.textFieldEnabled,
         autofocus: false,
         hintText: widget.hintText,
@@ -97,7 +97,7 @@ class _TagPickerState extends State<TagPicker> {
             widget.tags.add(string);
           });
         }
-      ),
+      ) : null,
       itemCount: widget.tags != null ? widget.tags.length : 0,
       itemBuilder: (index) {
         final String item = widget.tags[index];
@@ -105,16 +105,17 @@ class _TagPickerState extends State<TagPicker> {
           key: Key(index.toString()),
           index: index,
           title: item,
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
           pressEnabled: false,
           border: Border.all(
             width: 1,
-            color: widget.borderColor ?? _appTheme.secondaryText
+            color: widget.borderColor ?? _appTheme.mainColor
           ),
           elevation: 0.0,
-          activeColor: widget.chipColor ?? _appTheme.bannerColor,
+          activeColor: widget.chipColor ?? _appTheme.backgroundColor.withOpacity(0.5),
           borderRadius: BorderRadius.circular(30),
           combine: ItemTagsCombine.onlyText,
-          textActiveColor: widget.textColor ?? _appTheme.secondaryText,
+          textActiveColor: widget.textColor ?? _appTheme.mainText,
           removeButton: widget.removable ?
             ItemTagsRemoveButton(
               backgroundColor: widget.removeButtonColor ?? _appTheme.secondaryText,

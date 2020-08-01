@@ -32,10 +32,10 @@ class SubmitButton extends StatelessWidget {
         width: width,
         height: 42,
         decoration: BoxDecoration(
-          color: backgroundColor,
+          color: backgroundColor ?? _appTheme.mainColor,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.6),
+              color: Colors.grey.withOpacity(0.7),
               spreadRadius: 3,
               blurRadius: 7,
               offset: Offset(0,3)
@@ -48,7 +48,7 @@ class SubmitButton extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 18,
-              color: textColor
+              color: textColor ?? _appTheme.bannerColor
             ),
           ),
         ),
