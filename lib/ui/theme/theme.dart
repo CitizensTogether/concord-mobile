@@ -132,7 +132,7 @@ class ConcordThemeData {
   final Color backgroundColor;
   final Color bannerColor;
 
-  /// A color to denote urgency 
+  /// A color to denote urgent actions.
   final Color urgentColor;
 
   /// Monochromatic colors to match the theme brightness
