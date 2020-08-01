@@ -158,7 +158,8 @@ class ConcordThemeData {
       @required this.urgentColor,
       @required this.mainMono,
       @required this.secondaryMono,
-      @required this.textTheme,}) {
+      @required this.textTheme,
+    }) {
     opposite =
         themeData.brightness == Brightness.dark ? Colors.white : Colors.black;
     antiOpposite =
