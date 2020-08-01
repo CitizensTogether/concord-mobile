@@ -112,12 +112,12 @@ flutter:
           weight: 700
         - asset: assets/fonts/Lato-Italic.ttf
           weight: 600
+        - asset: assets/fonts/Lato-Regular.ttf
+          weight: 500
         - asset: assets/fonts/Lato-Light.ttf
           weight: 400
         - asset: assets/fonts/Lato-LightItalic.ttf
           weight: 300
-        - asset: assets/fonts/Lato-Regular.ttf
-          weight: 500
         - asset: assets/fonts/Lato-Thin.ttf 
           weight: 200
         - asset: assets/fonts/Lato-ThinItalic.ttf
