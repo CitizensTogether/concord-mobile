@@ -12,69 +12,69 @@ class ConcordThemeManager with ChangeNotifier {
   /// A customized typography for the app
   static const TextTheme concordTextTheme = TextTheme(
     headline1: TextStyle(
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontSize: 96,
       fontWeight: FontWeight.w400,
     ),
     headline2: TextStyle(
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontSize: 60,
       fontWeight: FontWeight.w400,
     ),
     headline3: TextStyle(
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontSize: 48,
       fontWeight: FontWeight.w700,
     ),
     headline4: TextStyle(
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontSize: 34,
       fontWeight: FontWeight.w700,
     ),
     headline5: TextStyle(
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontSize: 24,
       fontWeight: FontWeight.w700,
     ),
     headline6: TextStyle(
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontSize: 20,
       fontWeight: FontWeight.w700,
     ),
     bodyText1: TextStyle(
-      fontFamily: "Lato",
+      fontFamily: 'Lato',
       fontSize: 18,
       fontWeight: FontWeight.w500,
     ),
     bodyText2: TextStyle(
-      fontFamily: "Lato",
+      fontFamily: 'Lato',
       fontSize: 14,
       fontWeight: FontWeight.w500,
     ),
     subtitle1: TextStyle(
-      fontFamily: "Lato",
+      fontFamily: 'Lato',
       fontSize: 16,
       fontWeight: FontWeight.w500,
     ),
     subtitle2: TextStyle(
-      fontFamily: "Lato",
+      fontFamily: 'Lato',
       fontSize: 14,
       fontWeight: FontWeight.w500,
     ),
     button: TextStyle(
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontSize: 14,
       fontWeight: FontWeight.w700,
     ),
     overline: TextStyle(
-      fontFamily: "Lato",
+      fontFamily: 'Lato',
       fontSize: 10,
       fontWeight: FontWeight.w500,
     ),
     caption: TextStyle(
-      fontFamily: "Lato",
+      fontFamily: 'Lato',
       fontSize: 12,
-      fontWeight: FontWeight.w500
+      fontWeight: FontWeight.w500,
     ),
   );
 
