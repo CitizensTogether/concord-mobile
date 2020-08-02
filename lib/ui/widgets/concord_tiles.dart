@@ -257,3 +257,91 @@ class OrganizationTile extends StatelessWidget {
     );
   }
 }
+
+// Card containing a request and a checkmark indicating its status
+class Completed extends StatelessWidget {
+  final String title;
+  final String description;
+  final bool isComplete;
+  final Color textColor;
+  final Color backgroundColor;
+  final Function() onTap;
+  final int completed;
+  final int total;
+
+  const Completed({
+    Key key,
+    this.onTap,
+    this.title = "",
+    this.description = "",
+    this.isComplete = true,
+    this.textColor,
+    this.backgroundColor,
+    this.completed = 0,
+    this.total = 0,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(10.0),
+        width: MediaQuery.of(context).size.width - 16,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12.0),
+          color: backgroundColor,
+        ),
+        child: Row(
+          children: <Widget>[
+            Container(
+              child: Column(
+                children: [
+                  Checkbox(
+                    value: true,
+                    onChanged: null,
+                    visualDensity: new VisualDensity(
+                      horizontal: 1,
+                      vertical: 1,
+                    ),
+                  ),
+                  Text(
+                    "done!",
+                    style: TextStyle(
+                      color: textColor,
+                      letterSpacing: 0.25,
+                      fontSize: 11,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              child: Column(
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      color: textColor,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 0.25,
+                      fontSize: 24,
+                    ),
+                  ),
+                  Text(
+                    description,
+                    style: TextStyle(
+                      color: textColor,
+                      letterSpacing: 0.25,
+                      fontSize: 13,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -8,19 +8,18 @@ class SectionBanner extends StatelessWidget {
   final String title;
   final Color bannerColor;
   final Color titleColor;
-  final int fontSize;
+  final double fontSize;
 
   const SectionBanner({
     Key key,
     @required this.title,
     this.bannerColor,
     this.titleColor,
-    this.fontSize
+    this.fontSize,
   }) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
-
     final ConcordThemeData _appTheme = locator<ConcordThemeManager>().theme;
     
     return Container(
