@@ -86,8 +86,25 @@ flutter:
   fonts:
     - family: Raleway
       fonts:
+        - asset: assets/fonts/Raleway-Heavy.ttf
+          weight: 900
+        - asset: assets/fonts/Raleway-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Raleway-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Raleway-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Raleway-Medium.ttf
+          weight: 500
         - asset: assets/fonts/Raleway-Regular.ttf
-        - asset: assets/fonts/Raleway-Italics.ttf
+          weight: 400
+        - asset: assets/fonts/Raleway-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Raleway-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Raleway-Thin.ttf
+          weight: 100
+        
     - family: Lato
       fonts:
         - asset: assets/fonts/Lato-Bold.ttf
@@ -96,12 +113,12 @@ flutter:
           weight: 700
         - asset: assets/fonts/Lato-Italic.ttf
           weight: 600
+        - asset: assets/fonts/Lato-Regular.ttf
+          weight: 500
         - asset: assets/fonts/Lato-Light.ttf
           weight: 400
         - asset: assets/fonts/Lato-LightItalic.ttf
           weight: 300
-        - asset: assets/fonts/Lato-Regular.ttf
-          weight: 500
         - asset: assets/fonts/Lato-Thin.ttf 
           weight: 200
         - asset: assets/fonts/Lato-ThinItalic.ttf
