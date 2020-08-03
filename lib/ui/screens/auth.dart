@@ -1,4 +1,5 @@
 import 'package:concord/ui/theme/theme.dart';
+import 'package:concord/utils/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:validators/validators.dart' as validator;
@@ -18,7 +19,7 @@ class _AuthScreenState extends State<AuthScreen> {
     /// Stores the size of the screen to avoid multiple queries
     double screenWidth = MediaQuery.of(context).size.width;
     SignUpDetails initialDetails = SignUpDetails();
-    ConcordThemeData theme = ConcordThemeManager.lightTheme;
+    final ConcordThemeData theme = locator<ConcordThemeManager>().theme;
 
     final Widget formHeader = Padding(
       padding: EdgeInsets.fromLTRB(20, 50, 20, 5),
