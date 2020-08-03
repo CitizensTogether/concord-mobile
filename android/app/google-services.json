@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "542616585474",
+    "firebase_url": "https://project-concord-dev.firebaseio.com",
+    "project_id": "project-concord-dev",
+    "storage_bucket": "project-concord-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542616585474:android:988d9cdc0dd7e441482e1b",
+        "android_client_info": {
+          "package_name": "org.citizenstogether.concord"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "542616585474-kgcemn0h0uf879tli7slasr74s3hhh4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7F2mTIeg9TGxhaH0mscibc7pWfKuZX0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "542616585474-kgcemn0h0uf879tli7slasr74s3hhh4o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
