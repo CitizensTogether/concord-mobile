@@ -1,4 +1,3 @@
-import 'package:concord/ui/screens/request_details_screen.dart';
 import 'package:concord/ui/theme/theme.dart';
 import 'package:concord/ui/widgets/status_indicator.dart';
 import 'package:concord/ui/widgets/tags.dart';

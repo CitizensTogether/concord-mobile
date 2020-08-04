@@ -71,52 +71,55 @@ class HomeScreen extends StatelessWidget {
 
   // A helper widget for _bottomSheetPreview() to hold the preview information.
   Widget _requestPreviewData(){
-    return Row(
-      children: <Widget>[
-        StatusIndicator(
-          status: 'Open',
-          hideLabelText: true,
-          textColor: _appTheme.antiOpposite,
-        ),
-        SizedBox(width: 16.0),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: Row(
+        children: <Widget>[
+          StatusIndicator(
+            status: 'Open',
+            hideLabelText: true,
+            textColor: _appTheme.antiOpposite,
+          ),
+          SizedBox(width: 16.0),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Cat stuck in tree',
+                  style: _appTheme.textTheme.headline5.copyWith(
+                    color: _appTheme.antiOpposite, 
+                  ),
+                ),
+                Text(
+                  'Expires May 7',
+                  style: _appTheme.textTheme.caption.copyWith(
+                    color: _appTheme.bannerColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Column(
             children: <Widget>[
               Text(
-                'Cat stuck in tree',
-                style: _appTheme.textTheme.headline5.copyWith(
-                  color: _appTheme.antiOpposite, 
+                'People required',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: _appTheme.backgroundColor,
                 ),
               ),
               Text(
-                'Expires May 7',
-                style: _appTheme.textTheme.caption.copyWith(
+                '3 of 7',
+                style: _appTheme.textTheme.button.copyWith(
                   color: _appTheme.bannerColor,
-                ),
+                )
               ),
             ],
           ),
-        ),
-        Column(
-          children: <Widget>[
-            Text(
-              'People required',
-              style: TextStyle(
-                fontSize: 12,
-                color: _appTheme.backgroundColor,
-              ),
-            ),
-            Text(
-              '3 of 7',
-              style: _appTheme.textTheme.button.copyWith(
-                color: _appTheme.bannerColor,
-              )
-            ),
-          ],
-        ),
-        SizedBox(width: 8.0),
-      ],
+          SizedBox(width: 8.0),
+        ],
+      ),
     );
   }
 }
