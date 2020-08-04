@@ -17,25 +17,31 @@ class StatusIndicator extends StatelessWidget {
   /// The color of the status text.
   final Color textColor;
 
+  /// Controls whether or not to show the status text.
+  final bool hideLabelText;
+
   static ConcordThemeData _appTheme = locator<ConcordThemeManager>().theme;
 
   const StatusIndicator({
     Key key,
     @required this.status,
+    this.hideLabelText = false,
     this.textColor,
     this.width = 40
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (status == "open") {
+    if (status == 'Open') {
       return _openStatus();
-    } else if (status == "taken") {
+    } else if (status == 'Taken') {
       return _takenStatus();
     } else {
         return _closedStatus();
     }
   }
+  
+  // TODO: refactor code so that you can hide text
 
   Column _openStatus() {
     return Column(
