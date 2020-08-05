@@ -9,28 +9,28 @@ import 'package:stacked/stacked.dart';
 
 /// The primary landing page for the Concord app.
 class HomeScreen extends StatelessWidget {
-
   final ConcordThemeData _appTheme = locator<ConcordThemeManager>().theme;
-  
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
       viewModelBuilder: () => HomeViewModel(),
-      builder: (context, model, child) => 
-        Scaffold(
-          backgroundColor: _appTheme.mainMono,
-          body: Center(child: Text(model.title,)),
-          floatingActionButton: FloatingActionButton(
-            onPressed: model.updateCounter,
-            child: Icon(Icons.add),
-            backgroundColor: _appTheme.mainColor,
-          ),
-          bottomNavigationBar: _bottomSheetPreview(context),
+      builder: (context, model, child) => Scaffold(
+        backgroundColor: _appTheme.mainMono,
+        body: Center(
+          child: Text(model.title),
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: model.updateCounter,
+          child: Icon(Icons.add),
+          backgroundColor: _appTheme.mainColor,
+        ),
+        bottomNavigationBar: _bottomSheetPreview(context),
+      ),
     );
   }
 
-  Widget _bottomSheetPreview(BuildContext context){
+  Widget _bottomSheetPreview(BuildContext context) {
     return GestureDetector(
       onTap: () => showModalBottomSheet(
         context: context,
@@ -42,11 +42,14 @@ class HomeScreen extends StatelessWidget {
             topRight: Radius.circular(12),
           ),
         ),
-        builder: (BuildContext context) => ConcordBottomSheet()
+        builder: (BuildContext context) => ConcordBottomSheet(),
       ),
       child: Container(
-        height: MediaQuery.of(context).size.height*0.1,
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        height: MediaQuery.of(context).size.height * 0.1,
+        padding: EdgeInsets.symmetric(
+          horizontal: 16.0,
+          vertical: 8.0,
+        ),
         decoration: BoxDecoration(
           color: _appTheme.mainColor,
           shape: BoxShape.rectangle,
@@ -70,7 +73,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   // A helper widget for _bottomSheetPreview() to hold the preview information.
-  Widget _requestPreviewData(){
+  Widget _requestPreviewData() {
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
       child: Row(
@@ -88,7 +91,7 @@ class HomeScreen extends StatelessWidget {
                 Text(
                   'Cat stuck in tree',
                   style: _appTheme.textTheme.headline5.copyWith(
-                    color: _appTheme.antiOpposite, 
+                    color: _appTheme.antiOpposite,
                   ),
                 ),
                 Text(
@@ -113,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                 '3 of 7',
                 style: _appTheme.textTheme.button.copyWith(
                   color: _appTheme.bannerColor,
-                )
+                ),
               ),
             ],
           ),
@@ -131,14 +134,16 @@ class ConcordBottomSheet extends StatefulWidget {
 }
 
 /// This keeps track of the state of the bototm sheet for the home screen.
-/// 
+///
 /// Here, [itemIndex] is a state-having variable.
 class _ConcordBottomSheetState extends State<ConcordBottomSheet> {
-  
   final ConcordThemeData _appTheme = locator<ConcordThemeManager>().theme;
-  
+
   /// A list of the bulletins the user is signed up for.
-  final List<RequestDetailsCard> items = [RequestDetailsCard(), RequestDetailsCard()];
+  final List<RequestDetailsCard> items = [
+    RequestDetailsCard(),
+    RequestDetailsCard(),
+  ];
 
   /// A controller for the list of bulletins.
   final PageController _pageController = PageController();
@@ -151,7 +156,7 @@ class _ConcordBottomSheetState extends State<ConcordBottomSheet> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 8.0),
-      height: MediaQuery.of(context).size.height*0.8,
+      height: MediaQuery.of(context).size.height * 0.8,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
@@ -161,17 +166,17 @@ class _ConcordBottomSheetState extends State<ConcordBottomSheet> {
             color: _appTheme.mainColor,
           ),
           Container(
-            height: MediaQuery.of(context).size.height*0.73,
-            width: MediaQuery.of(context).size.width*1,
+            height: MediaQuery.of(context).size.height * 0.73,
+            width: MediaQuery.of(context).size.width * 1,
             child: PageView.builder(
               scrollDirection: Axis.horizontal,
               controller: _pageController,
               itemCount: items.length,
               itemBuilder: (BuildContext context, int index) => items[index],
-              
+
               /// When the user swipes on the card, [itemIndex] is updated so that
               /// the DotsIndicator can indicate the change in page view.
-              onPageChanged: (int index){
+              onPageChanged: (int index) {
                 setState(() {
                   itemIndex = index.toDouble();
                 });
@@ -189,7 +194,7 @@ class _ConcordBottomSheetState extends State<ConcordBottomSheet> {
 
             /// Updates the state of the current page index and jumps to the
             /// page corresponding to the dot that has been tapped.
-            onTap: (double index){
+            onTap: (double index) {
               setState(() {
                 itemIndex = index;
               });
