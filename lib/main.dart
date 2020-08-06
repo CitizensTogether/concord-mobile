@@ -1,4 +1,5 @@
 import 'package:concord/ui/screens/home_screen.dart';
+import 'package:concord/ui/screens/registration_screen.dart';
 import 'package:concord/ui/theme/theme.dart';
 import 'package:concord/utils/locator.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class Concord extends StatelessWidget {
         title: 'Concord',
         // For testing, change the assignment of home to be whatever screen you're working on
         // Example: home: AuthScreen()
-        home: HomeScreen(),
+        home: RegistrationScreen(),
       ),
     );
   }
