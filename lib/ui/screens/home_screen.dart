@@ -30,6 +30,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // The bottom app bar which serves as a preview of the bottom sheet in the home screen.
   Widget _bottomSheetPreview(BuildContext context) {
     return GestureDetector(
       onTap: () => _showConcordBottomSheet(context),
