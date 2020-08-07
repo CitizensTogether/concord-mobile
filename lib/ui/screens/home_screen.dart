@@ -32,18 +32,8 @@ class HomeScreen extends StatelessWidget {
 
   Widget _bottomSheetPreview(BuildContext context) {
     return GestureDetector(
-      onTap: () => showModalBottomSheet(
-        context: context,
-        isScrollControlled: true,
-        backgroundColor: _appTheme.mainMono,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(12),
-            topRight: Radius.circular(12),
-          ),
-        ),
-        builder: (BuildContext context) => ConcordBottomSheet(),
-      ),
+      onTap: () => _showConcordBottomSheet(context),
+      onVerticalDragStart: (DragStartDetails details) => _showConcordBottomSheet(context),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.1,
         padding: EdgeInsets.symmetric(
@@ -69,6 +59,22 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  // A helper function to be called upon various gestures applied to the bottom sheet preview.
+  void _showConcordBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: _appTheme.mainMono,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(12),
+          topRight: Radius.circular(12),
+        ),
+      ),
+      builder: (BuildContext context) => ConcordBottomSheet(),
     );
   }
 
@@ -184,8 +190,8 @@ class _ConcordBottomSheetState extends State<ConcordBottomSheet> {
             ),
           ),
           DotsIndicator(
-            dotsCount: items.length,
-            position: itemIndex,
+            dotsCount: items.length > 5 ? 5 : items.length,
+            position: itemIndex > 4 ? 4 : itemIndex,
             decorator: DotsDecorator(
               color: _appTheme.opposite.withOpacity(0.3),
               activeColor: _appTheme.opposite.withOpacity(0.6),
@@ -201,6 +207,7 @@ class _ConcordBottomSheetState extends State<ConcordBottomSheet> {
               _pageController.jumpToPage(index.floor());
             },
           ),
+          Text('${itemIndex.floor() + 1} / ${items.length}'),
         ],
       ),
     );

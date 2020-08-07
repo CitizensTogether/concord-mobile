@@ -12,67 +12,67 @@ class ConcordThemeManager with ChangeNotifier {
   static const TextTheme concordTextTheme = TextTheme(
     headline1: TextStyle(
       fontFamily: 'Raleway',
-      fontSize: 98,
+      fontSize: 96,
       fontWeight: FontWeight.w400,
     ),
     headline2: TextStyle(
       fontFamily: 'Raleway',
-      fontSize: 62,
+      fontSize: 60,
       fontWeight: FontWeight.w400,
     ),
     headline3: TextStyle(
       fontFamily: 'Raleway',
-      fontSize: 50,
+      fontSize: 48,
       fontWeight: FontWeight.w700,
     ),
     headline4: TextStyle(
       fontFamily: 'Raleway',
-      fontSize: 36,
+      fontSize: 34,
       fontWeight: FontWeight.w700,
     ),
     headline5: TextStyle(
       fontFamily: 'Raleway',
-      fontSize: 26,
+      fontSize: 24,
       fontWeight: FontWeight.w700,
     ),
     headline6: TextStyle(
       fontFamily: 'Raleway',
-      fontSize: 22,
+      fontSize: 20,
       fontWeight: FontWeight.w700,
     ),
     bodyText1: TextStyle(
       fontFamily: 'Lato',
-      fontSize: 20,
+      fontSize: 18,
       fontWeight: FontWeight.w500,
     ),
     bodyText2: TextStyle(
       fontFamily: 'Lato',
-      fontSize: 16,
+      fontSize: 14,
       fontWeight: FontWeight.w500,
     ),
     subtitle1: TextStyle(
       fontFamily: 'Lato',
-      fontSize: 18,
+      fontSize: 16,
       fontWeight: FontWeight.w500,
     ),
     subtitle2: TextStyle(
       fontFamily: 'Lato',
-      fontSize: 16,
+      fontSize: 14,
       fontWeight: FontWeight.w500,
     ),
     button: TextStyle(
       fontFamily: 'Raleway',
-      fontSize: 16,
+      fontSize: 14,
       fontWeight: FontWeight.w700,
     ),
     overline: TextStyle(
       fontFamily: 'Lato',
-      fontSize: 12,
+      fontSize: 10,
       fontWeight: FontWeight.w500,
     ),
     caption: TextStyle(
       fontFamily: 'Lato',
-      fontSize: 14,
+      fontSize: 12,
       fontWeight: FontWeight.w500,
     ),
   );
