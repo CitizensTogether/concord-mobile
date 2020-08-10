@@ -43,6 +43,7 @@ android {
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        manifestPlaceholders = [androidMapsKey: "$System.env.ANDROID_MAPS_KEY"]
     }
 
     buildTypes {

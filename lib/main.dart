@@ -3,11 +3,11 @@ import 'package:concord/ui/theme/theme.dart';
 import 'package:concord/utils/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'ui/screens/request_details_screen.dart';
 
 /// Initialize the app.
-void main() {
+Future main() async {
+  // await FlutterConfig.loadEnvVariables();
   setupLocator();
   runApp(Concord());
 }

@@ -34,7 +34,8 @@ class HomeScreen extends StatelessWidget {
   Widget _bottomSheetPreview(BuildContext context) {
     return GestureDetector(
       onTap: () => _showConcordBottomSheet(context),
-      onVerticalDragStart: (DragStartDetails details) => _showConcordBottomSheet(context),
+      onVerticalDragStart: (DragStartDetails details) =>
+          _showConcordBottomSheet(context),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.1,
         padding: EdgeInsets.symmetric(
@@ -214,3 +215,4 @@ class _ConcordBottomSheetState extends State<ConcordBottomSheet> {
     );
   }
 }
+
