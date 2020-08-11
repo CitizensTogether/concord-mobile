@@ -36,6 +36,7 @@ dependencies:
   dots_indicator: ^1.2.0
   google_maps_flutter: ^0.5.29
   flutter_config: ^1.0.7
+  location: ^3.0.0
   #images
   multi_image_picker: ^4.6.8
 

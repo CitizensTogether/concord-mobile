@@ -8,42 +8,40 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 /// A card to hold the details for a request.
-/// 
+///
 /// Inteded to be used in the bottom sheet of the home screen.
 class RequestDetailsCard extends StatelessWidget {
-
   final ConcordThemeData _appTheme = locator<ConcordThemeManager>().theme;
 
   @override
   Widget build(BuildContext context) {
     return Card(
-       color: _appTheme.antiOpposite,
-       elevation: 4.0,
-       borderOnForeground: false,
-       shape: RoundedRectangleBorder(
-         borderRadius: BorderRadius.circular(8.0),
-       ),
-       margin: EdgeInsets.all(16.0),
-       child: Container(
-         padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 4.0),
-         child: SingleChildScrollView(
+        color: _appTheme.antiOpposite,
+        elevation: 4.0,
+        borderOnForeground: false,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        margin: EdgeInsets.all(16.0),
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 4.0),
+          child: SingleChildScrollView(
             child: Column(
-             children: <Widget>[
-               _requestMetaData(),
-               RequestData(),
-             ],
-           ),
-         ),
-       )
-    );
+              children: <Widget>[
+                _requestMetaData(),
+                RequestData(),
+              ],
+            ),
+          ),
+        ));
   }
-  
-  /// This is the header row of the card. 
-  /// 
+
+  /// This is the header row of the card.
+  ///
   /// Contains the request's status indicator, title, expiration, and the helpers
   /// required. There is also a chat icon to allow the user to go to the chat room
-  /// for this request and a more option. 
-  Widget _requestMetaData(){
+  /// for this request and a more option.
+  Widget _requestMetaData() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8.0),
       child: Row(
@@ -53,7 +51,9 @@ class RequestDetailsCard extends StatelessWidget {
             width: 35.0,
             textColor: _appTheme.mainColor,
           ),
-          SizedBox(width: 16.0,),
+          SizedBox(
+            width: 16.0,
+          ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +61,7 @@ class RequestDetailsCard extends StatelessWidget {
                 Text(
                   'Cat stuck in tree',
                   style: _appTheme.textTheme.headline6.copyWith(
-                    color: _appTheme.mainText, 
+                    color: _appTheme.mainText,
                   ),
                 ),
                 Text(
@@ -74,16 +74,18 @@ class RequestDetailsCard extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: (){},
+            onTap: () {},
             child: Icon(
               Icons.chat,
               color: _appTheme.opposite.withOpacity(0.4),
               size: 28,
             ),
           ),
-          SizedBox(width: 4.0,),
+          SizedBox(
+            width: 4.0,
+          ),
           GestureDetector(
-            onTap: (){},
+            onTap: () {},
             child: Icon(
               Icons.more_vert,
               color: _appTheme.opposite.withOpacity(0.4),
@@ -94,16 +96,14 @@ class RequestDetailsCard extends StatelessWidget {
       ),
     );
   }
-
 }
 
 /// The deatils about any bulletin.
-/// 
+///
 /// This includes the notes, the requester/helper name, the skills required for
 /// the task, any additional media uploaded by the requester, and any updates posted
-/// for the bulletin.  
+/// for the bulletin.
 class RequestData extends StatelessWidget {
-
   static ConcordThemeData _appTheme = locator<ConcordThemeManager>().theme;
 
   @override
@@ -120,7 +120,7 @@ class RequestData extends StatelessWidget {
     );
   }
 
-    /// The description and the map preview with the address.
+  /// The description and the map preview with the address.
   Widget _midRow(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
@@ -138,8 +138,8 @@ class RequestData extends StatelessWidget {
           Stack(
             children: [
               Container(
-                height: MediaQuery.of(context).size.width*0.91*0.7,
-                width: MediaQuery.of(context).size.width*0.93,
+                height: MediaQuery.of(context).size.width * 0.91 * 0.7,
+                width: MediaQuery.of(context).size.width * 0.93,
                 decoration: BoxDecoration(
                   color: _appTheme.backgroundColor.withOpacity(0.24),
                   borderRadius: BorderRadius.circular(8.0),
@@ -158,7 +158,7 @@ class RequestData extends StatelessWidget {
                 right: 0,
                 left: 0,
                 child: Container(
-                  height: MediaQuery.of(context).size.width*0.91*0.63,
+                  height: MediaQuery.of(context).size.width * 0.91 * 0.63,
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 4.0,
@@ -166,7 +166,7 @@ class RequestData extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.circular(4.0),
                   ),
-                  child: MapSample(),
+                  child: MapPreview(),
                 ),
               ),
             ],
@@ -175,7 +175,7 @@ class RequestData extends StatelessWidget {
       ),
     );
   }
-  
+
   /// The requestor's name and profile picture, and a label for the section.
   Widget _requesterInformation() {
     return InformationSection(
@@ -208,16 +208,15 @@ class RequestData extends StatelessWidget {
     return InformationSection(
       title: 'Skills required',
       child: TagPicker(
-        initTags: ["CPR certified", "dog friendly"],
-        removable: false,
-        textFieldEnabled: false
-      ),
+          initTags: ["CPR certified", "dog friendly"],
+          removable: false,
+          textFieldEnabled: false),
       placeholderText: 'No skills or certifications required!',
     );
   }
 
   /// Any images uploaded for the request.
-  /// 
+  ///
   /// This section should not render if the requester does not upload any images.
   /// This uses the InformationSection widget, but the placeholder text should never
   /// be used, since the section will not exist if a child is not provided.
@@ -243,7 +242,8 @@ class RequestData extends StatelessWidget {
               ),
               SizedBox(width: 8.0),
               Expanded(
-                child: Text('The laundry smells more like donuts by the minute.'),
+                child:
+                    Text('The laundry smells more like donuts by the minute.'),
               ),
             ],
           ),
@@ -256,9 +256,10 @@ class RequestData extends StatelessWidget {
                   color: _appTheme.mainColor,
                 ),
               ),
-              SizedBox( width: 8.0),
+              SizedBox(width: 8.0),
               Expanded(
-                child: Text('The manager lady just informed me that she spilled coffee on my underpants.'),
+                child: Text(
+                    'The manager lady just informed me that she spilled coffee on my underpants.'),
               ),
             ],
           ),
@@ -266,7 +267,6 @@ class RequestData extends StatelessWidget {
       ),
     );
   }
-
 }
 
 /// A layout widget used to maintian consistency in the sections of this page.
@@ -278,23 +278,22 @@ class InformationSection extends StatelessWidget {
 
   static ConcordThemeData _appTheme = locator<ConcordThemeManager>().theme;
 
-  const InformationSection({
-    Key key,
+  const InformationSection(
+      {Key key,
 
-    /// The title of the section.
-    @required this.title,
+      /// The title of the section.
+      @required this.title,
 
-    /// The text to display if a child is not provided.
-    this.placeholderText,
+      /// The text to display if a child is not provided.
+      this.placeholderText,
 
-    /// The content of the section.
-    this.child,
+      /// The content of the section.
+      this.child,
 
-    /// The size of the section title.
-    this.titleSize = 12
+      /// The size of the section title.
+      this.titleSize = 12})
+      : super(key: key);
 
-  }) : super(key: key);
-  
   @override
   Widget build(BuildContext context) {
     return child != null ? _childProvided() : _notProvided();
@@ -308,10 +307,8 @@ class InformationSection extends StatelessWidget {
         children: <Widget>[
           Text(
             title,
-            style: TextStyle(
-              fontSize: titleSize,
-              color: _appTheme.secondaryColor
-            ),
+            style:
+                TextStyle(fontSize: titleSize, color: _appTheme.secondaryColor),
           ),
           SizedBox(height: 4.0),
           child,
@@ -328,10 +325,8 @@ class InformationSection extends StatelessWidget {
         children: <Widget>[
           Text(
             title,
-            style: TextStyle(
-              fontSize: titleSize,
-              color: _appTheme.secondaryColor
-            ),
+            style:
+                TextStyle(fontSize: titleSize, color: _appTheme.secondaryColor),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -349,18 +344,46 @@ class InformationSection extends StatelessWidget {
   }
 }
 
-class MapSample extends StatefulWidget {
+/// A Google Maps widget to show the user a preview of a location.
+class MapPreview extends StatefulWidget {
+  
+  /// The coordinates of the location of a request.
+  final LatLng destination;
+
+  const MapPreview({
+    Key key,
+    this.destination
+  }) : super(key: key);
+
   @override
-  State<MapSample> createState() => MapSampleState();
+  State<MapPreview> createState() => MapPreviewState();
 }
 
-class MapSampleState extends State<MapSample> {
+/// This widget maintains the state of MapPreview.
+class MapPreviewState extends State<MapPreview> {
+  /// A controller for the map.
   Completer<GoogleMapController> _controller = Completer();
 
+  /// The set of all markers the map will show.
+  Map<MarkerId, Marker> _markers = <MarkerId, Marker>{};
+
+  /// The initial camera position of the map.
   static final CameraPosition _home = CameraPosition(
     target: LatLng(29.722151, -95.389622),
     zoom: 14.4746,
   );
+
+  @override
+  void initState() {
+    super.initState();
+
+    setState(() {
+      _markers[MarkerId('destination')] = Marker(
+        position: widget.destination ?? LatLng(29.722151, -95.389622),
+        markerId: MarkerId('destination'),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -369,11 +392,11 @@ class MapSampleState extends State<MapSample> {
         liteModeEnabled: true,
         zoomControlsEnabled: false,
         initialCameraPosition: _home,
+        myLocationEnabled: true,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
       ),
     );
   }
-
 }
