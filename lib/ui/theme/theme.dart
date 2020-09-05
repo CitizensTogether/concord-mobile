@@ -33,8 +33,31 @@ class ConcordThemeManager with ChangeNotifier {
       mainMono: offWhite,
       secondaryMono: lightPink);
 
+  //dark theme data
+  static ConcordThemeData darkTheme = ConcordThemeData(
+      themeData: ThemeData(
+        primaryColor: Color(0xFF444444),
+        brightness: Brightness.dark,
+        fontFamily: 'Lato',
+        buttonColor: blueText,
+      ),
+      mainText: Colors.red,
+      secondaryText: greenText,
+      mainColor: mossGreen,
+      secondaryColor: blue,
+      backgroundColor: Colors.black,
+      bannerColor: Colors.blueGrey,
+      urgentColor: red,
+      mainMono: Color(0xFF43464b),
+      secondaryMono: lightPink);
+
   changeToLight() {
     _currentTheme = lightTheme;
+    notifyListeners();
+  }
+
+  changeToDark() {
+    _currentTheme = darkTheme;
     notifyListeners();
   }
 }
