@@ -208,7 +208,7 @@ class _InputFormFieldsState extends State<InputFormFields> {
                   CustomField(
                     hintText: "Phone Number",
                     validator: (String value){
-                      if(!validator.isLength(value,8,8))
+                      if(!validator.isLength(value,10,10))
                         return "Please input a valid phone number";
                       return null;
                     },
